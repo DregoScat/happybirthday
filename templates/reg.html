@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration...</title>
+    {%include "_bootstrap.html" %}
+</head>
+<body>
+<form method="post">
+    <div class="ubuntu-medium">
+        <h1>First you need to register</h1>
+        <p>Write your name:</p>
+        <input type="text" name="name">
+
+        <p>Write your email:</p>
+        <input type="email" name="email">
+
+        <p>Create your password:</p>
+        {%if password: %}
+            <input type="text" name="password" size="100" value={{password}}>
+        {%endif%}
+
+        <p>Repeat your password:</p>
+        <input type="text" name="rpassword" size="100">
+
+        <p><em>*click enter to check if your password is enough secure</em></p>
+
+        <input type="submit">
+
+        <ul>
+            <li>Your password must have at least 15 characters</li>
+            <li>Your password must have at least 1 big letter</li>
+            <li>Your password must have at least 1 small letter</li>
+            <li>Your password must have at least 1 special character</li>
+            <li>Your password must have at least 1 drink (written in small letters, like: water, soda, etc. NOT NAMES OF COMPANIES OR ALCOHOL DRINKS like: coka_cola, wine, etc.)</li>
+            <li>Your password must have at least 1 number (like: 1; 2; etc.)</li>
+            <li>Your password must have at least 1 roman numeral (like: I; V,etc.). But I removed C, D and L, because with them the challenge is imposssible.</li>
+            <li>The sum of prime and Roman numbers in your password must be 25.
+                example: if your password is Kostya123V the sum of numbers will be 1+2+3+5=11</li>
+            <li>Your password must have the name of your favourite grandson (written in big letters). PAY ATTENTION IN THE NAME OF YOUR GRANDSON THERE IS A ROMAN NUMERAL!!!</li>
+
+        </ul>
+
+
+        {%if pdm: %}
+            <p class="red">Your passwords don't match</p>
+        {%endif%}
+        {%if err%}
+            <p>Your password isn't secure!!!</p>
+        {%endif%}
+        {%if go: %}
+            <meta http-equiv="refresh" content="0; URL='/gift'" />
+        {%endif %}
+    </div>
+
+</form>
+
+</body>
+</html>
